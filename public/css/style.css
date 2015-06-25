@@ -31,3 +31,6 @@ input[type="text"] {
   border: none;
   border-bottom: 1px solid #DDD;
 }
+input[type="text"]:focus {
+  outline: none;
+}
