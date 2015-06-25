@@ -1,6 +1,8 @@
 var http = require('http');
 var fs = require('fs');
 
+var mime = require('mime');
+
 var server = http.createServer();
 
 /**
@@ -10,16 +12,27 @@ var server = http.createServer();
  */
 server.on('request', function (request, response){
 
-  // Depending upon the route load appropriate resources
-  if (request.url === '/') {
-    fs.readFile('index.html', function (err, data) {
-      response.writeHead(200, { 'Content-Type' : 'text/html' });
-      response.end(data);
-    });
-  } else {
-    response.writeHead(404, { 'Content-Type' : 'text/plain' });
-    response.end('404 - Page Not Found');
-  }
+  var absPath;
+
+  // Create an absolute path depending upon the request
+  if (request.url === '/') { absPath = __dirname + '/index.html'; }
+  else { absPath = __dirname + request.url; }
+
+  // Check if the requested file exists or not. If it exists then load it
+  // otherwise send a 404 message
+  fs.exists(absPath, function (exists) {
+    if (exists) {
+      fs.readFile(absPath, function (err, data) {
+        response.writeHead(200, {
+          'Content-Type' : mime.lookup(absPath)
+        });
+        response.end(data);
+      });
+    } else {
+      response.writeHead(404, { 'Content-Type' : 'text/plain' });
+      response.end('404 - Page Not Found');
+    }
+  });
 
   // Log the URL and Status Code for Debugging
   console.log(request.url, response.statusCode);
