@@ -15,7 +15,7 @@ server.on('request', function (request, response){
   var absPath = __dirname + '/public/';
 
   // Create an absolute path depending upon the request
-  if (request.url === '/') { absPath += 'index.html'; }
+  if (request.url === '/') { absPath += 'html/index.html'; }
   else { absPath += request.url; }
 
   // Check if the requested file exists or not. If it exists then load it

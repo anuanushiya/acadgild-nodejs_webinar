@@ -1,0 +1,32 @@
+body {
+  font-family : 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-weight: 200;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 200;
+}
+
+.container {
+  position: absolute;
+
+  margin: auto;
+  width: 600px;
+  height: 300px;
+
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.align-center {
+  text-align: center;
+}
+
+input[type="text"] {
+  font-size: 2em;
+  box-shadow: none;
+  border: none;
+  border-bottom: 1px solid #DDD;
+}
