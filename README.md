@@ -1,1 +1,3 @@
-# acadgild-nodejs_webinar
+# Realtime Quiz Application
+
+A minimalistc realitme NodeJS application for AcadGild Webinar
