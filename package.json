@@ -1,0 +1,9 @@
+{
+  "name" : "acadgild-nodejs_webinar",
+  "description" : "A minimalistc NodeJS application for AcadGild Webinar",
+  "private" : true,
+  "version" : "0.0.1",
+  "devDependencies" : {
+    "mime" : "~1.3.4"
+  }
+}
