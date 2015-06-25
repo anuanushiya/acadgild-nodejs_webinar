@@ -12,11 +12,11 @@ var server = http.createServer();
  */
 server.on('request', function (request, response){
 
-  var absPath;
+  var absPath = __dirname + '/public/';
 
   // Create an absolute path depending upon the request
-  if (request.url === '/') { absPath = __dirname + '/index.html'; }
-  else { absPath = __dirname + request.url; }
+  if (request.url === '/') { absPath += 'index.html'; }
+  else { absPath += request.url; }
 
   // Check if the requested file exists or not. If it exists then load it
   // otherwise send a 404 message
