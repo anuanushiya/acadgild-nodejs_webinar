@@ -4,6 +4,7 @@ var fs = require('fs');
 var mime = require('mime');
 
 var server = http.createServer();
+var io;
 
 /**
  * Listen to Server's request event determine what to do
@@ -11,7 +12,6 @@ var server = http.createServer();
  * @param  {object} response    NodeJS Response Object
  */
 server.on('request', function (request, response){
-
   var absPath = __dirname + '/public/';
 
   // Create an absolute path depending upon the request
@@ -37,6 +37,25 @@ server.on('request', function (request, response){
     console.log(request.url, response.statusCode);
   });
 
+});
+
+
+io = require('socket.io')(server);
+
+/**
+ * Listen to the Websocket Server
+ * @param  {object}         Socket object
+ */
+io.on('connection', function (socket) {
+  // Custom event called 'message' is invoked from the client
+  socket.on('message', function (data) {
+    console.log(data);
+  });
+
+  // Invoked when the socket is being disconnected
+  socket.on('disconnect', function () {
+    console.log('disconnected');
+  });
 
 });
 
