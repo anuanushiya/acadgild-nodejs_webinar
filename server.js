@@ -32,10 +32,11 @@ server.on('request', function (request, response){
       response.writeHead(404, { 'Content-Type' : 'text/plain' });
       response.end('404 - Page Not Found');
     }
+
+    // Log the URL and Status Code for Debugging
+    console.log(request.url, response.statusCode);
   });
 
-  // Log the URL and Status Code for Debugging
-  console.log(request.url, response.statusCode);
 
 });
 
