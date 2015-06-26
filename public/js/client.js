@@ -51,7 +51,7 @@
 
       $('.container').empty().html(html);
 
-      $('#form-question').on('submit', function (ev) {
+      $('#form-question').off('submit').on('submit', function (ev) {
         ev.preventDefault();
         var request = {
           type : 'answer',
@@ -60,6 +60,10 @@
         };
 
         socket.emit('answer', request);
+
+        var html = '<h1>Sit tight, ' + user.name +
+          '! <br>The winner will be announced shortly.';
+        $('.container').empty().html(html);
       });
 
     };
