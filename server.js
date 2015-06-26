@@ -70,7 +70,7 @@ io.on('connection', function (socket) {
 
   // Listens to all the submitted answers
   socket.on('answer', function (data) {
-    console.log(data);
+    io.emit('log', data);
   });
 
   // Invoked when the socket is being disconnected

@@ -30,10 +30,13 @@
       var message, html;
       switch(data.type){
         case "join":
-          message = data.name + " has joined";
+          message = data.name + " has joined room";
           break;
         case "question":
-          message = "'" + data.question + "' has been broadcasted";
+          message = "'" + data.question + "' has been broadcasted to everyone";
+          break;
+        case "answer":
+          message = data.user.name + " has answered - " + data.answer;
           break;
       }
 
