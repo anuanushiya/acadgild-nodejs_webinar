@@ -68,6 +68,11 @@ io.on('connection', function (socket) {
     io.emit('log', data);
   });
 
+  // Listens to all the submitted answers
+  socket.on('answer', function (data) {
+    console.log(data);
+  });
+
   // Invoked when the socket is being disconnected
   socket.on('disconnect', function () {
     console.log('disconnected');
