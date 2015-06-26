@@ -8,11 +8,32 @@
 
     var socket = io(), user = {};
 
+    $('#form-quiz').on('submit', function (ev) {
+      ev.preventDefault();
+      var request = {};
+
+      request.question = $('#section-quiz-question').val();
+      request.option = {
+        a : $('#section-quiz-op1').val(),
+        b : $('#section-quiz-op2').val(),
+        c : $('#section-quiz-op3').val(),
+        d : $('#section-quiz-op4').val()
+      };
+      request.answer = $('#section-quiz-answer').val();
+      request.type = 'question';
+
+      socket.emit('submit', request);
+
+    });
+
     socket.on('log', function (data) {
       var message, html;
       switch(data.type){
         case "join":
           message = data.name + " has joined";
+          break;
+        case "question":
+          message = "'" + data.question + "' has been broadcasted";
           break;
       }
 

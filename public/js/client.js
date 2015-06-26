@@ -10,6 +10,9 @@
 
     var initSocket = function () {
       socket = io();
+      socket.on('broadcast', function (data) {
+        console.log(data);
+      });
     };
 
     var registerUser = function () {

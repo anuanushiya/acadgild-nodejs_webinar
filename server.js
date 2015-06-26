@@ -48,8 +48,23 @@ io = require('socket.io')(server);
  * @param  {object}         Socket object
  */
 io.on('connection', function (socket) {
+  var quiz;
+
   // Custom event called 'message' is invoked from the client
   socket.on('join', function (data) {
+    io.emit('log', data);
+  });
+
+  // Custom event called 'submit' which accepts the quiz data
+  socket.on('submit', function (data) {
+    var request = {
+      question : data.question,
+      option : data.option
+    };
+
+    quiz = data;
+
+    io.emit('broadcast', request);
     io.emit('log', data);
   });
 

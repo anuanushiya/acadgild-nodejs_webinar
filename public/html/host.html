@@ -6,9 +6,50 @@
   <link rel="stylesheet" href="css/pure-min.css">
 </head>
 <body>
-  <section class="pure-u-1-2" id="section-questionnaire"></section>
-  <section class="pure-u-1-2" id="section-logs">
-    <section class="content-log"></section>
+
+  <section class="pure-u-1-2 pull-left" id="section-quiz">
+    <form class="pure-form content" id="form-quiz">
+      <div class="pure-form-stacked">
+
+        <label for="section-quiz-question">
+          Enter a question to broadcast -
+        </label>
+        <input type="text" required class="pure-u-3-4"
+          id="section-quiz-question">
+
+        <br>
+
+        <label>Enter multiple choices with a correct answer -</label>
+        <input type="text" class="pure-u-1-4" required placeholder="Option A"
+          id="section-quiz-op1">
+        <input type="text" class="pure-u-1-4" required placeholder="Option B"
+          id="section-quiz-op2">
+        <input type="text" class="pure-u-1-4" required placeholder="Option C"
+          id="section-quiz-op3">
+        <input type="text" class="pure-u-1-4" required placeholder="Option D"
+          id="section-quiz-op4">
+
+        <br>
+
+        <label>Choose the correct answer -</label>
+        <select id="section-quiz-answer" class="pure-u-1-4">
+          <option value="a">Option A</option>
+          <option value="b">Option B</option>
+          <option value="c">Option C</option>
+          <option value="d">Option D</option>
+        </select>
+
+        <br>
+
+        <input type="submit" class="pure-button pure-button-primary
+          button-xlarge pure-u-1-2" value="Broadcast" />
+
+      </div>
+    </form>
+  </section>
+
+  <section class="pure-u-1-2 pull-right" id="section-logs">
+    <section class="content-log content"></section>
   </section>
 
   <script src="js/jquery.min.js"></script>

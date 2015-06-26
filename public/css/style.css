@@ -21,13 +21,15 @@ h1, h2, h3, h4, h5, h6 {
   bottom: 0;
 }
 
-.content-log {
-  color: #FFF;
+.content {
   margin: 1em;
   height: 600px;
+  overflow: auto;
+}
+.content-log {
+  color: #FFF;
   background-color: #222;
   font-family: "Monaco", monospace;
-  overflow: auto;
 }
 
 .content-log-entry {
@@ -35,10 +37,15 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.75em;
 }
 
+.pull-left {
+  float: left;
+}
+.pull-right {
+  float: right;
+}
 .align-center {
   text-align: center;
 }
-
 .text-large {
   font-size: 2em;
 }
