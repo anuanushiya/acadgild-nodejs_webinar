@@ -36,7 +36,7 @@
       var html;
       if (data.name === user.name) {
         html = '<h1>High Five, ' + user.name +
-          '! <br>You have answered it correct.';
+          '! <br>You have answered it correctly.';
       } else {
         html = '<h1>Arrghhh, ' + data.name + ' beat you here! ' +
           '<br>Take your revenge in the next question.';
