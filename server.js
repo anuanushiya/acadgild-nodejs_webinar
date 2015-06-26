@@ -4,7 +4,7 @@ var fs = require('fs');
 var mime = require('mime');
 
 var server = http.createServer();
-var io;
+var io, quiz = {};
 
 /**
  * Listen to Server's request event determine what to do
@@ -48,8 +48,6 @@ io = require('socket.io')(server);
  * @param  {object}         Socket object
  */
 io.on('connection', function (socket) {
-  var quiz;
-
   // Custom event called 'message' is invoked from the client
   socket.on('join', function (data) {
     io.emit('log', data);
@@ -71,6 +69,10 @@ io.on('connection', function (socket) {
   // Listens to all the submitted answers
   socket.on('answer', function (data) {
     io.emit('log', data);
+
+    if (quiz.answer === data.answer) {
+      io.emit('winner', data.user);
+    }
   });
 
   // Invoked when the socket is being disconnected

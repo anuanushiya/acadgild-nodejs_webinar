@@ -13,6 +13,9 @@
       socket.on('broadcast', function (data) {
         renderQuestion(data);
       });
+      socket.on('winner', function (data) {
+        renderWinnder(data);
+      });
     };
 
     var registerUser = function () {
@@ -26,6 +29,18 @@
     var welcomeUser = function () {
       var html = '<h1>Welcome ' + user.name +
         ', please wait while your host is preparing a questionnaire for you';
+      $('.container').empty().html(html);
+    };
+
+    var renderWinnder = function (data) {
+      var html;
+      if (data.name === user.name) {
+        html = '<h1>High Five, ' + user.name +
+          '! <br>You have answered it correct.';
+      } else {
+        html = '<h1>Arrghhh, ' + data.name + ' beat you here! ' +
+          '<br>Take your revenge in the next question.';
+      }
       $('.container').empty().html(html);
     };
 
