@@ -13,13 +13,16 @@
     };
 
     var registerUser = function () {
-      var request = user;
+      var request = {
+        type : 'join',
+        name : user.name
+      };
       socket.emit('join', request);
     };
 
     var welcomeUser = function () {
       var html = '<h1>Welcome ' + user.name +
-        ', Please wait while our host is preparing the questionnaire for you';
+        ', please wait while your host is preparing a questionnaire for you';
       $('#form-nickname').empty().html(html);
     };
 

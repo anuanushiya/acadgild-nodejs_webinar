@@ -16,6 +16,7 @@ server.on('request', function (request, response){
 
   // Create an absolute path depending upon the request
   if (request.url === '/') { absPath += 'html/index.html'; }
+  else if (request.url === '/host') { absPath += 'html/host.html'; }
   else { absPath += request.url; }
 
   // Check if the requested file exists or not. If it exists then load it
@@ -49,7 +50,7 @@ io = require('socket.io')(server);
 io.on('connection', function (socket) {
   // Custom event called 'message' is invoked from the client
   socket.on('join', function (data) {
-    console.log(data);
+    io.emit('log', data);
   });
 
   // Invoked when the socket is being disconnected
