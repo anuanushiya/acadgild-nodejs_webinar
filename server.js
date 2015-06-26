@@ -48,7 +48,7 @@ io = require('socket.io')(server);
  */
 io.on('connection', function (socket) {
   // Custom event called 'message' is invoked from the client
-  socket.on('message', function (data) {
+  socket.on('join', function (data) {
     console.log(data);
   });
 
